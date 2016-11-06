@@ -34,7 +34,20 @@
 vg.embed("#vis", {
   mode: "vega-lite",
   url: "error.vl.json",
-  actions: false
+  actions: false,
+  parameters: [
+    {
+      type: "select",
+      signal: "comparison",
+      name: "show",
+      value: "only",
+      options: [
+        "only",
+        "skip",
+        "special"
+      ]
+    }
+  ]
 }, function(error, result) {
   if (result) {
   console.log(result);
