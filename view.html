@@ -16,8 +16,7 @@
   </style>
 </head>
 <body>
-  <h1>Template for Embedding Vega-Lite Visualization</h1>
-  <div>See code at <a href="https://github.com/vega/vega-lite-demo">https://github.com/vega/vega-lite-demo</a></div>
+  <h1>&rdquo;Software-Defined Imaging&rsquo; Data Visualizer</h1>
   <!-- Container for the visualization -->
   <div id="vis"></div>
 
@@ -44,10 +43,8 @@
   };
 
   var embedSpec = {
-    mode: "vega-lite",  // Instruct Vega-Embed to use the Vega-Lite compiler
-    spec: vlSpec
-    // You can add more vega-embed configuration properties here.
-    // See https://github.com/vega/vega/wiki/Embed-Vega-Web-Components#configuration-propeties for more information.
+    mode: "vega-lite",
+    url: "bars.vl.json"
   };
 
   // Embed the visualization in the container with id `vis`
