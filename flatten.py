@@ -25,11 +25,16 @@ def all_runs(infn):
         for row in reader:
             name, stages, interp = row['Name'], row['Stages Used'], \
                 row['Interpretation']
+            if not stages:
+                # Skip informational/header rows.
+                continue
             for app in APPS:
                 yield name, stages, interp, app, row[app]
 
 
 def flatten(infn, outfn):
+    """Given a compact CSV, write a new CSV with one result per line.
+    """
     with open(outfn, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(('name', 'stages', 'interp', 'app', 'score'))
