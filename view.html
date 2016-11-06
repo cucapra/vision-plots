@@ -40,6 +40,9 @@ vg.embed("#vis", {
       type: "select",
       signal: "comparison",
       name: "show",
+      rewrite: [
+        "encoding.x.field"
+      ],
       value: "only",
       options: [
         "only",
@@ -50,8 +53,7 @@ vg.embed("#vis", {
   ]
 }, function(error, result) {
   if (result) {
-  console.log(result);
-  vl.tooltip(result.view, result.spec);
+    vl.tooltip(result.view, result.spec);
   }
 });
 </script>
