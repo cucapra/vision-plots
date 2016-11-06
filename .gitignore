@@ -1,4 +1,5 @@
 final.csv
 early.csv
-error.svg
-error.pdf
+error-*.svg
+error-*.pdf
+error-*.vl.json

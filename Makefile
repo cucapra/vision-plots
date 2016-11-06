@@ -1,8 +1,10 @@
 .DELETE_ON_ERROR:
 
+PLOTS := error-only error-skip error-special
+
 .PHONY: svg pdf
-svg: error.svg
-pdf: error.pdf
+svg: $(PLOTS:%=%.svg)
+pdf: $(PLOTS:%=%.pdf)
 
 final.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
@@ -10,8 +12,12 @@ final.csv: data/Final_Results.csv flatten.py
 early.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
 
-error.svg: error.vl.json final.csv
+%.svg: %.vl.json final.csv
 	vl2svg < $< > $@
+
+# Plot variants.
+error-%.vl.json: error.vl.json
+	json -e 'this.encoding.x.field = "$*"' < $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
