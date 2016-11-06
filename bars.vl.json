@@ -1,0 +1,9 @@
+{
+  "description": "A simple bar chart with embedded data.",
+  "data": { "url": "simpler.csv" },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Name", "type": "ordinal"},
+    "y": {"field": "CIFAR-10, 3 Deep LeNet", "type": "quantitative"}
+  }
+}
