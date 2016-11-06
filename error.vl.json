@@ -1,0 +1,9 @@
+{
+  "data": { "url": "final.csv" },
+  "mark": "point",
+  "encoding": {
+    "x": {"field": "name", "type": "nominal"},
+    "y": {"field": "error", "type": "quantitative"},
+    "color": {"field": "app", "type": "nominal"}
+  }
+}

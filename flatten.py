@@ -22,6 +22,7 @@ def all_runs(infn):
     """
     with open(infn) as f:
         reader = csv.DictReader(f)
+
         for row in reader:
             name, stages, interp = row['Name'], row['Stages Used'], \
                 row['Interpretation']
@@ -37,7 +38,7 @@ def flatten(infn, outfn):
     """
     with open(outfn, 'w') as f:
         writer = csv.writer(f)
-        writer.writerow(('name', 'stages', 'interp', 'app', 'score'))
+        writer.writerow(('name', 'stages', 'interp', 'app', 'error'))
         for name, stages, interp, app, score in all_runs(infn):
             writer.writerow((name, stages, interp, app, score))
 

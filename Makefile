@@ -1,8 +1,8 @@
 .DELETE_ON_ERROR:
 
 .PHONY: svg pdf
-svg: bars.svg
-pdf: bars.pdf
+svg: error.svg
+pdf: error.pdf
 
 final.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
@@ -10,8 +10,8 @@ final.csv: data/Final_Results.csv flatten.py
 early.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
 
-bars.svg: bars.vl.json final.csv
-	vl2svg < $^ > $@
+error.svg: error.vl.json final.csv
+	vl2svg < $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it

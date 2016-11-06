@@ -1,9 +1,0 @@
-{
-  "data": { "url": "final.csv" },
-  "mark": "bar",
-  "encoding": {
-    "x": {"field": "name", "type": "ordinal"},
-    "y": {"field": "score", "type": "quantitative"},
-    "color": {"field": "app", "type": "nominal"}
-  }
-}
