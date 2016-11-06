@@ -16,42 +16,17 @@
   </style>
 </head>
 <body>
-  <h1>&rdquo;Software-Defined Imaging&rsquo; Data Visualizer</h1>
-  <!-- Container for the visualization -->
-  <div id="vis"></div>
+<h1>&ldquo;Software-Defined Imaging&rdquo; Data Visualizer</h1>
 
-  <script>
-  // Assign the specification to a local variable vlSpec.
-  var vlSpec = {
-    "data": {
-      "values": [
-        {"a": "C", "b": 2}, {"a": "C", "b": 7}, {"a": "C", "b": 4},
-        {"a": "D", "b": 1}, {"a": "D", "b": 2}, {"a": "D", "b": 6},
-        {"a": "E", "b": 8}, {"a": "E", "b": 4}, {"a": "E", "b": 7}
-      ]
-    },
-    "mark": "bar",
-    "encoding": {
-      "y": {"field": "a", "type": "nominal"},
-      "x": {
-        "aggregate": "average", "field": "b", "type": "quantitative",
-        "axis": {
-          "title": "Average of b"
-        }
-      }
-    }
-  };
+<!-- The plot will be drawn in this container. -->
+<div id="vis"></div>
 
-  var embedSpec = {
-    mode: "vega-lite",
-    url: "bars.vl.json"
-  };
-
-  // Embed the visualization in the container with id `vis`
-  vg.embed("#vis", embedSpec, function(error, result) {
-    // Callback receiving the View instance and parsed Vega spec
-    // result.view is the View, which resides under the '#vis' element
-  });
-  </script>
+<script>
+vg.embed("#vis", {
+  mode: "vega-lite",
+  url: "bars.vl.json",
+  actions: false
+});
+</script>
 </body>
 </html>
