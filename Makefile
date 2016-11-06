@@ -5,6 +5,7 @@ PLOTS := error-only error-skip error-special
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
 pdf: $(PLOTS:%=%.pdf)
+vl: $(PLOTS:%=%.vl.json)
 
 final.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@

@@ -24,36 +24,31 @@
 <body>
 <h1>&ldquo;Software-Defined Imaging&rdquo; Data Visualizer</h1>
 
-<!-- The plot will be drawn in this container. -->
-<div id="vis"></div>
+<!-- Plots will be drawn in these containers. -->
+<div class="vis" data-vis="error-only.vl.json"></div>
+<div class="vis" data-vis="error-skip.vl.json"></div>
+<div class="vis" data-vis="error-special.vl.json"></div>
 
 <!-- For vega-tooltip. -->
 <div id="vis-tooltip" class="vg-tooltip"></div>
 
 <script>
-vg.embed("#vis", {
-  mode: "vega-lite",
-  url: "error.vl.json",
-  actions: false,
-  parameters: [
-    {
-      type: "select",
-      signal: "comparison",
-      name: "show",
-      value: "only",
-      options: [
-        "only",
-        "skip",
-        "special"
-      ]
+var visblocks = document.querySelectorAll('.vis');
+for (var i = 0; i < visblocks.length; ++i) {
+  var visblock = visblocks[i];
+  var url = visblock.dataset['vis'];
+
+  vg.embed(visblock, {
+    mode: "vega-lite",
+    url: url,
+    actions: false,
+  }, function(error, result) {
+    if (result) {
+      vl.tooltip(result.view, result.spec);
+      console.log(result.spec);
     }
-  ]
-}, function(error, result) {
-  if (result) {
-    vl.tooltip(result.view, result.spec);
-    console.log(result.spec);
-  }
-});
+  });
+}
 </script>
 </body>
 </html>
