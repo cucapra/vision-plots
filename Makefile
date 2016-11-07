@@ -32,3 +32,12 @@ FIX_SVG := ( \
 
 %.pdf: %.svg
 	$(FIX_SVG) < $< | rsvg-convert -f pdf > $@
+
+
+# Deployment.
+
+RSYNCARGS := --compress --recursive --checksum --itemize-changes \
+	--delete -e ssh --exclude .git
+DEST := dh:domains/adriansampson.net/vision-plots
+deploy:
+	rsync $(RSYNCARGS) ./ $(DEST)
