@@ -18,7 +18,9 @@ early.csv: data/Final_Results.csv flatten.py
 
 # Plot variants.
 error-%.vl.json: error.vl.json
-	json -e 'this.encoding.x.field = "$*"' < $< > $@
+	json -e 'this.encoding.x.field = "$*"' \
+		-e 'this.transform = {"filter": "!!datum.$*"}' \
+		< $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
