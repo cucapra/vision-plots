@@ -6,12 +6,10 @@ APPS = [
     "CIFAR-10, 3 Deep LeNet",
     "CIFAR-10, 20 Deep Resnet",
     "CIFAR-10, 44 Deep Resnet",
-    "CIFAR-100, 20 Deep Resnet",
     "Middlebury, Farneback optical flow",
     "Middlebury, Stereo SGBM",
     "Strecha MVS, OpenMVG",
     "VOC-2007, Faster RCNN",
-    "COCO, DeepMask",
     "LFW & CASIA, OpenFace",
 ]
 
