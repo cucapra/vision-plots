@@ -122,7 +122,7 @@ def flatten(infn, outfn):
     # Translate the data.
     with open(outfn, 'w') as f:
         # Get the set of keys for the columns.
-        header = ['name', 'stages', 'interp', 'app', 'error']
+        header = ['name', 'stages', 'interp', 'app', 'error', 'error_norm']
         header += config_keys
 
         # Write the header row.
@@ -131,12 +131,14 @@ def flatten(infn, outfn):
 
         # Write each data row.
         for name, stages, interp, app, score in run_data:
+            score_norm = score / norm_bases[app] if score else None
             row = {
                 'name': name,
                 'stages': stages,
                 'interp': interp,
                 'app': app,
                 'error': score,
+                'error_norm': score_norm,
             }
             if name in CONFIG_INFO:
                 row.update(CONFIG_INFO[name])
