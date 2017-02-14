@@ -69,6 +69,9 @@ CONFIG_INFO = {
     },
 }
 
+# Name of the configuration representing the normalization base.
+NORM_BASE = "V0"
+
 
 def all_runs(infn):
     """Given an input CSV in Mark's format, generate data tuples for
@@ -84,7 +87,11 @@ def all_runs(infn):
                 # Skip informational/header rows.
                 continue
             for app in APPS:
-                yield name, stages, interp, app, row[app]
+                try:
+                    score = float(row[app])
+                except ValueError:
+                    score = None
+                yield name, stages, interp, app, score
 
 
 def _union_all(iterables):
@@ -103,6 +110,15 @@ def flatten(infn, outfn):
     # Find all the new keys from CONFIG_INFO.
     config_keys = list(_union_all(CONFIG_INFO.values()))
 
+    # Load the data from the CSV file.
+    run_data = list(all_runs(infn))
+
+    # Get normalization baselines.
+    norm_bases = {}
+    for name, _, _, app, score in run_data:
+        if name == NORM_BASE and score is not None:
+            norm_bases[app] = score
+
     # Translate the data.
     with open(outfn, 'w') as f:
         # Get the set of keys for the columns.
@@ -114,7 +130,7 @@ def flatten(infn, outfn):
         writer.writeheader()
 
         # Write each data row.
-        for name, stages, interp, app, score in all_runs(infn):
+        for name, stages, interp, app, score in run_data:
             row = {
                 'name': name,
                 'stages': stages,
