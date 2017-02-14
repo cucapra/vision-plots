@@ -43,7 +43,8 @@ FIX_SVG := ( \
 # Deployment.
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
-	--delete -e ssh --exclude .git
-DEST := dh:domains/adriansampson.net/vision-plots
+	--delete -e ssh --perms --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r \
+	--exclude .git
+DEST := courses:coursewww/capra.cs.cornell.edu/htdocs/public/vision-plots
 deploy:
 	rsync $(RSYNCARGS) ./ $(DEST)
