@@ -2,6 +2,7 @@ import csv
 import sys
 
 
+# The names of all the applications (which must match CSV headers).
 APPS = [
     "CIFAR-10, 3 Deep LeNet",
     "CIFAR-10, 20 Deep Resnet",
@@ -13,6 +14,12 @@ APPS = [
     "LFW & CASIA, OpenFace",
 ]
 
+# Names for describing each of the configurations. For each
+# configuration id "Vx", there is a mapping from *plot kind* to the
+# *name* for the configuration in that plot kind. Missing keys indicate
+# that the configuration should not be included in a given plot kind.
+# For example, V5 only enables the denoise component, so it is labeled
+# "denoise" in the "only" plot. It is not included in the "skip" plot.
 CONFIG_INFO = {
     "V0": {
         "only": "(original)",
