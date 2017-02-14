@@ -1,6 +1,7 @@
 .DELETE_ON_ERROR:
 
-PLOTS := error-only error-skip error-special
+PLOTS := error-only error-skip error-special \
+	error_norm-only error_norm-skip error_norm-special
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
@@ -20,6 +21,11 @@ early.csv: data/Final_Results.csv flatten.py
 error-%.vl.json: error.vl.json
 	json -e 'this.encoding.x.field = "$*"' \
 		-e 'this.transform = {"filter": "!!datum.$*"}' \
+		< $< > $@
+
+# Normalized plot variants.
+error_norm-%.vl.json: error-%.vl.json
+	json -e 'this.encoding.y.field = "error_norm"' \
 		< $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
