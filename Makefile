@@ -18,15 +18,12 @@ early.csv: data/Final_Results.csv flatten.py
 	vl2svg < $< > $@
 
 # Plot variants.
-error-%.vl.json: error.vl.json
-	json -e 'this.encoding.x.field = "$*"' \
-		-e 'this.transform = {"filter": "!!datum.$*"}' \
-		< $< > $@
+error-%.vl.json: error.meta.js
+	metajson --category $* < $< > $@
 
 # Normalized plot variants.
-error_norm-%.vl.json: error-%.vl.json
-	json -e 'this.encoding.y.field = "error_norm"' \
-		< $< > $@
+error_norm-%.vl.json: error.meta.js
+	metajson --category $* --norm < $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
