@@ -3,18 +3,22 @@
   "mark": $.bars ? "bar" : "point",
   "encoding": {
     "x": $.bars ? {
-      "field": "app", "type": "nominal",
+      "field": $.byapp ? $.category : "app", "type": "nominal",
       "axis": false,
       "scale": {"bandSize": 6},
-    } : {"field": $.category, "type": "nominal"},
+    } : {"field": $.byapp ? "app" : $.category, "type": "nominal"},
     "y": {"field": $.norm ? "error_norm" : "error", "type": "quantitative"},
-    "color": {"field": "app", "type": "nominal"},
+    "color": {"field": $.byapp ? $.category : "app", "type": "nominal"},
 
     // In bar plots, lay out the groups of bars.
     "column": $.bars ? {
-      "field": $.category, "type": "nominal",
+      "field": $.byapp ? "app" : $.category,
+      "type": "nominal",
       "scale": {"padding": 4},
-      "axis": {"orient": "bottom"},
+      "axis": {
+        "orient": "bottom",
+        "labelAngle": $.byapp ? -90 : undefined,
+      },
     } : undefined,
   },
 
