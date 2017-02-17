@@ -2,7 +2,11 @@
   "data": { "url": "final.csv" },
   "mark": $.bars ? "bar" : "point",
   "encoding": {
-    "x": $.bars ? {"field": "app", "type": "nominal", "axis": false}
+    "x": $.bars ? {
+      "field": "app", "type": "nominal",
+      "axis": false,
+      "scale": {"bandSize": 6},
+    }
           : {"field": $.category, "type": "nominal"},
     "y": {"field": $.norm ? "error_norm" : "error", "type": "quantitative"},
     "color": {"field": "app", "type": "nominal"},
