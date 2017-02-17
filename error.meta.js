@@ -17,7 +17,7 @@
       "scale": {"padding": 4},
       "axis": {
         "orient": "bottom",
-        "labelAngle": $.byapp ? -90 : undefined,
+        "labelMaxLength": $.byapp ? 6 : undefined,
       },
     } : undefined,
   },

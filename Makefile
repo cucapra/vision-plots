@@ -2,8 +2,9 @@
 
 PLOTS := error-only error-skip error-special \
 	bars_error-only bars_error-skip bars_error-special \
+	byapp_error-only byapp_error-skip byapp_error-special \
 	error_norm-only error_norm-skip error_norm-special \
-	bars_error_norm-only bars_error_norm-skip bars_error_norm-special \
+	byapp_error_norm-only byapp_error_norm-skip byapp_error_norm-special \
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
