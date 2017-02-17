@@ -1,7 +1,9 @@
 .DELETE_ON_ERROR:
 
 PLOTS := error-only error-skip error-special \
-	error_norm-only error_norm-skip error_norm-special
+	bars_error-only bars_error-skip bars_error-special \
+	error_norm-only error_norm-skip error_norm-special \
+	bars_error_norm-only bars_error_norm-skip bars_error_norm-special \
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
@@ -21,9 +23,15 @@ early.csv: data/Final_Results.csv flatten.py
 error-%.vl.json: error.meta.js
 	metajson --category $* < $< > $@
 
+bars_error-%.vl.json: error.meta.js
+	metajson --category $* --bars < $< > $@
+
 # Normalized plot variants.
 error_norm-%.vl.json: error.meta.js
 	metajson --category $* --norm < $< > $@
+
+bars_error_norm-%.vl.json: error.meta.js
+	metajson --category $* --norm --bars < $< > $@
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
