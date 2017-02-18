@@ -78,6 +78,15 @@ def all_runs(infn):
     every application in every configuration.
     """
     with open(infn) as f:
+        # Check whether the CSV has a pre-header row. If it does, skip it.
+        reader = csv.reader(f)
+        first_row = next(reader)
+        if sum(bool(s) for s in first_row) > 1:
+            # No pre-header row. Begin at the top of the file. (Otherwise,
+            # we've now correctly skipped the first row.)
+            f.seek(0)
+
+        # Use the new top row as keys for the rows' values.
         reader = csv.DictReader(f)
 
         for row in reader:
