@@ -1,6 +1,7 @@
 {
   "data": { "url": "final.csv" },
   "layers": [
+    // Main "bars" layer.
     {
       "mark": "bar",
       "encoding": {
@@ -20,6 +21,19 @@
           "title": $.app === "LeNet3" ? "error" : "",
         },
         "color": {"field": $.category, "type": "nominal", "legend": false},
+      },
+    },
+
+    // Heavy rule at the baseline.
+    {
+      "mark": "rule",
+      "config": {"mark": {"strokeWidth": 2, "color": "#000"}},
+      "encoding": {
+        "y": {"field": "error"},
+      },
+      "transform": {
+        // Filter to include *only* the baseline data ("V0").
+        "filter": "datum.name === 'V0'",
       },
     },
   ],
