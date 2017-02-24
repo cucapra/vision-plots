@@ -9,7 +9,9 @@ PLOTS := error-only error-skip error-special \
 	LeNet3-only ResNet20-only ResNet44-only Farneback-only SGBM-only \
 	OpenMVG-only RCNN-only OpenFace-only \
 	LeNet3-skip ResNet20-skip ResNet44-skip Farneback-skip SGBM-skip \
-	OpenMVG-skip RCNN-skip OpenFace-skip
+	OpenMVG-skip RCNN-skip OpenFace-skip \
+	LeNet3-special ResNet20-special ResNet44-special Farneback-special \
+	SGBM-special OpenMVG-special RCNN-special OpenFace-special
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
