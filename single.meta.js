@@ -4,6 +4,7 @@
   "encoding": {
     "x": {
       "field": $.category, "type": "nominal",
+      "scale": {"bandSize": 10},
     },
     "y": {"field": "error", "type": "quantitative"},
     "color": {"field": $.category, "type": "nominal", "legend": false},
