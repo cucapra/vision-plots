@@ -84,6 +84,6 @@ V42,"Rto, Rg, Rtr, Renois, Remos, DemosNN, Fto",Only do nearest neighbor demosai
 V43,"Rto, Rg, Rtr, Renois, Remos, DemosBilinInter, Fto",Only do bilinear interpolation demosaic and tone mapping,20.8,10.79,9.49,37.59,35.22,0.464,8.87,0.4416,55.84,,,,,
 Resolution,,,,,,,,,,,,,,,,
 V72/V0,,No change (high res CIFAR-10),39.6,26.34,24.5,,,0.412,,,,,,,,
-V73,,"Full reverse, subsample demosaic, ¬ res binning, tone map",40.9,27.71,26.5,,,1.162,,,,,,,,
+V73,,"Full reverse, subsample demosaic, ?? res binning, tone map",40.9,27.71,26.5,,,1.162,,,,,,,,
 V74,,"Full reverse, subsample demosaic, 1/16 res binning, tone map",42.8,29,29.0,,,xxx,,,,,,,,
 V75,,"Full reverse, subsample demosaic, 1/64 res binning, tone map",46.16,35.2,32.3,,,xxx,,,,,,,,
