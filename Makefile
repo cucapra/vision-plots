@@ -41,6 +41,10 @@ bars_error_norm-%.vl.json: error.meta.js
 byapp_error_norm-%.vl.json: error.meta.js
 	metajson --category $* --norm --bars --byapp < $< > $@
 
+# Single-app plots.
+%-only.vl.json: single.meta.js
+	metajson --category only --app $* < $< > $@
+
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
 # does work with a separate `font-family` attribute. We can fix that!
