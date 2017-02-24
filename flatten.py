@@ -6,13 +6,13 @@ from collections import OrderedDict
 # The names of all the applications (which must match CSV headers) mapped to
 # *short* names for the apps to use in the plots.
 APPS = OrderedDict([
-    ["CIFAR-10, 3 Deep LeNet", "LeNet-3"],
-    ["CIFAR-10, 20 Deep Resnet", "ResNet-20"],
-    ["CIFAR-10, 44 Deep Resnet", "ResNet-44"],
+    ["CIFAR-10, 3 Deep LeNet", "LeNet3"],
+    ["CIFAR-10, 20 Deep Resnet", "ResNet20"],
+    ["CIFAR-10, 44 Deep Resnet", "ResNet44"],
     ["Middlebury, Farneback optical flow", "Farneback"],
     ["Middlebury, Stereo SGBM", "SGBM"],
     ["Strecha MVS, OpenMVG", "OpenMVG"],
-    ["VOC-2007, Faster RCNN", "R-CNN"],
+    ["VOC-2007, Faster RCNN", "RCNN"],
     ["LFW & CASIA, OpenFace", "OpenFace"],
 ])
 

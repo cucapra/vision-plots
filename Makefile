@@ -5,7 +5,8 @@ PLOTS := error-only error-skip error-special \
 	byapp_error-only byapp_error-skip byapp_error-special \
 	error_norm-only error_norm-skip error_norm-special \
 	bars_error_norm-only bars_error_norm-skip bars_error_norm-special \
-	byapp_error_norm-only byapp_error_norm-skip byapp_error_norm-special
+	byapp_error_norm-only byapp_error_norm-skip byapp_error_norm-special \
+	LeNet3-only
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
@@ -44,6 +45,13 @@ byapp_error_norm-%.vl.json: error.meta.js
 # Single-app plots.
 %-only.vl.json: single.meta.js
 	metajson --category only --app $* < $< > $@
+
+%-skip.vl.json: single.meta.js
+	metajson --category skip --app $* < $< > $@
+
+%-special.vl.json: single.meta.js
+	metajson --category special --app $* < $< > $@
+
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
