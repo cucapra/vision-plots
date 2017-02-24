@@ -27,13 +27,26 @@
     // Heavy rule at the baseline.
     {
       "mark": "rule",
-      "config": {"mark": {"strokeWidth": 2, "color": "#000"}},
+      "config": {"mark": {"color": "#000"}},
       "encoding": {
         "y": {"field": "error"},
       },
       "transform": {
         // Filter to include *only* the baseline data ("V0").
         "filter": "datum.name === 'V0'",
+      },
+    },
+
+    // Dashed rule at the "full reverse" (pseudo-worst-case) line.
+    {
+      "mark": "rule",
+      "config": {"mark": {"strokeDash": [2, 2], "color": "#000"}},
+      "encoding": {
+        "y": {"field": "error"},
+      },
+      "transform": {
+        // Filter to include only the full-reverse data ("V1").
+        "filter": "datum.name === 'V1'",
       },
     },
   ],
