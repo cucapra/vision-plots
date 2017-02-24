@@ -1,18 +1,20 @@
 import csv
 import sys
+from collections import OrderedDict
 
 
-# The names of all the applications (which must match CSV headers).
-APPS = [
-    "CIFAR-10, 3 Deep LeNet",
-    "CIFAR-10, 20 Deep Resnet",
-    "CIFAR-10, 44 Deep Resnet",
-    "Middlebury, Farneback optical flow",
-    "Middlebury, Stereo SGBM",
-    "Strecha MVS, OpenMVG",
-    "VOC-2007, Faster RCNN",
-    "LFW & CASIA, OpenFace",
-]
+# The names of all the applications (which must match CSV headers) mapped to
+# *short* names for the apps to use in the plots.
+APPS = OrderedDict([
+    ["CIFAR-10, 3 Deep LeNet", "LeNet-3"],
+    ["CIFAR-10, 20 Deep Resnet", "ResNet-20"],
+    ["CIFAR-10, 44 Deep Resnet", "ResNet-44"],
+    ["Middlebury, Farneback optical flow", "Farneback"],
+    ["Middlebury, Stereo SGBM", "SGBM"],
+    ["Strecha MVS, OpenMVG", "OpenMVG"],
+    ["VOC-2007, Faster RCNN", "R-CNN"],
+    ["LFW & CASIA, OpenFace", "OpenFace"],
+])
 
 # Names for describing each of the configurations. For each
 # configuration id "Vx", there is a mapping from *plot kind* to the
@@ -100,7 +102,7 @@ def all_runs(infn):
                     score = float(row[app])
                 except ValueError:
                     score = None
-                yield name, stages, interp, app, score
+                yield name, stages, interp, APPS[app], score
 
 
 def _union_all(iterables):
