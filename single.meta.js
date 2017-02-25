@@ -22,6 +22,12 @@
         },
         "color": {"field": $.category, "type": "nominal", "legend": false},
       },
+
+      // Exclude the baseline and full reverse bars: we represent these with
+      // lines instead.
+      "transform": {
+        "filter": "datum.name !== 'V0' && datum.name !== 'V1'",
+      },
     },
 
     // Heavy rule at the baseline.
