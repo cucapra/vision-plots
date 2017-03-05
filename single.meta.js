@@ -46,7 +46,7 @@
     // Dashed rule at the "full reverse" (pseudo-worst-case) line.
     {
       "mark": "rule",
-      "config": {"mark": {"strokeDash": [2, 2], "color": "#000"}},
+      "config": {"mark": {"strokeDash": [5, 4], "color": "#000"}},
       "encoding": {
         "y": {"field": "error"},
       },
