@@ -57,6 +57,10 @@ byapp_error_norm-%.vl.json: error.meta.js
 %-special.vl.json: single.meta.js
 	metajson --category special --app $* < $< > $@
 
+# Quantization sweeps.
+sweep-%.vl.json: sweep.meta.js
+	metajson --category $* --norm < $< > $@
+
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it

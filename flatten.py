@@ -47,6 +47,7 @@ CONFIG_INFO = {
     },
     "V6": {
         "only": "demosaic",
+        "quant_lin": "8",
     },
     "V7": {
         "skip": "tone map",
@@ -68,6 +69,49 @@ CONFIG_INFO = {
     },
     "V13": {
         "special": "demosaic + tone map",
+        "quant_log": "8",
+    },
+    "V58": {
+        "quant_lin": "7",
+    },
+    "V59": {
+        "quant_lin": "6",
+    },
+    "V60": {
+        "quant_lin": "5",
+    },
+    "V61": {
+        "quant_lin": "4",
+    },
+    "V62": {
+        "quant_lin": "3",
+    },
+    "V63": {
+        "quant_lin": "2",
+    },
+    "V64": {
+        "quant_lin": "1",
+    },
+    "V65": {
+        "quant_log": "7",
+    },
+    "V66": {
+        "quant_log": "6",
+    },
+    "V67": {
+        "quant_log": "5",
+    },
+    "V68": {
+        "quant_log": "4",
+    },
+    "V69": {
+        "quant_log": "3",
+    },
+    "V70": {
+        "quant_log": "2",
+    },
+    "V71": {
+        "quant_log": "1",
     },
 }
 

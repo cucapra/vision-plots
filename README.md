@@ -16,4 +16,4 @@ There are also two HTML files here that let you view the visualizations interact
 Hacking
 -------
 
-The Vega-Lite source for the plots is in `error.meta.js` and `single.meta.js`. These are both MetaJSON files with a few different parameters that can be used to generate a bunch of similar but slightly different plots. See the Makefile for how to translate these into complete Vega-Lite JSON source programs.
+The Vega-Lite source for the plots is in the files `*.meta.js`. These are [MetaJSON](https://github.com/sampsyo/metajson) files with a few different parameters that can be used to generate a bunch of similar but slightly different plots. See the Makefile for how to translate these into complete Vega-Lite JSON source programs.
