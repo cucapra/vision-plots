@@ -6,6 +6,7 @@ PLOTS := error-only error-skip error-special \
 	error_norm-only error_norm-skip error_norm-special \
 	bars_error_norm-only bars_error_norm-skip bars_error_norm-special \
 	byapp_error_norm-only byapp_error_norm-skip byapp_error_norm-special \
+	sweep-quant_lin sweep-quant_log \
 	LeNet3-only ResNet20-only ResNet44-only Farneback-only SGBM-only \
 	OpenMVG-only RCNN-only OpenFace-only \
 	LeNet3-skip ResNet20-skip ResNet44-skip Farneback-skip SGBM-skip \
