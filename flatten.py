@@ -113,6 +113,18 @@ CONFIG_INFO = {
     "V71": {
         "quant_log": "1",
     },
+    "V72/V0": {
+        "resolution": "orig.",
+    },
+    "V73": {
+        "resolution": "1/4",
+    },
+    "V74": {
+        "resolution": "1/16",
+    },
+    "V75": {
+        "resolution": "1/64",
+    },
 }
 
 # Name of the configuration representing the normalization base.
@@ -138,7 +150,7 @@ def all_runs(infn):
         for row in reader:
             name, stages, interp = row['Name'], row['Stages Used'], \
                 row['Interpretation']
-            if not stages:
+            if not stages and not interp:
                 # Skip informational/header rows.
                 continue
             for app in APPS:

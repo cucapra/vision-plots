@@ -62,6 +62,10 @@ byapp_error_norm-%.vl.json: error.meta.js
 sweep-%.vl.json: sweep.meta.js
 	metajson --category $* --norm --max 4.0 < $< > $@
 
+# Resolution sweep.
+ressweep.vl.json: ressweep.meta.js
+	metajson --category resolution --norm --max 4.0 < $< > $@
+
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
 # Vega-Lite. rsvg-convert doesn't seem to support the `font` attribute, but it
