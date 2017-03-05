@@ -1,4 +1,6 @@
 {
+  "height": 150,
+
   "data": { "url": "final.csv" },
   "layers": [
     // Main "bars" layer.
