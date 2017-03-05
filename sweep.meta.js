@@ -4,7 +4,14 @@
   "encoding": {
     "x": {
       "field": $.category, "type": "quantitative",
-      "axis": {"title": "bits"},
+      "axis": {
+        "title": "bits",
+        "ticks": 8,  // Bits range: 1--8.
+      },
+      "sort": "descending",  // High to low.
+      "scale": {
+        "domain": [1,8],  // Bits range.
+      },
     },
     "y": {
       "field": $.norm ? "error_norm" : "error",
@@ -13,7 +20,7 @@
     },
     "color": {
       "field": "app", "type": "nominal",
-      "axis": {"title": "Application"},
+      "legend": {"title": "Application"},
     },
   },
 
