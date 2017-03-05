@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+  <title>CfV Visualizer: Sweeps</title>
+  <meta charset="utf-8">
+
+  <!-- Vega stuff. -->
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//vega.github.io/vega/vega.js"></script>
+  <script src="//vega.github.io/vega-lite/vega-lite.js"></script>
+  <script src="//vega.github.io/vega-editor/vendor/vega-embed.js" charset="utf-8"></script>
+
+  <!-- Vega-Tooltip. -->
+  <script src="//vega.github.io/datalib/datalib.min.js"></script>
+  <script src="//vega.github.io/vega-tooltip/vg-tooltip.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//vega.github.io/vega-tooltip/vg-tooltip.css">
+
+  <style media="screen">
+    /* Add space between vega-embed links  */
+    .vega-actions a {
+      margin-right: 5px;
+    }
+    .fig {
+      float: left;
+      margin-right: 1rem;
+    }
+    h2 {
+      clear: both;
+      margin-bottom: 0.5rem;
+    }
+    .fig h3 {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<h1>&ldquo;Cameras for Vision&rdquo; Data Visualizer: Quantization and
+  Resolution Sweeps</h1>
+
+<!-- Plots will be drawn in these containers. -->
+<h2>Quantization</h2>
+<div class="fig">
+  <h3><a href="sweep-quant_lin.pdf">Linear Quantization</a></h3>
+  <div class="vis" data-vis="sweep-quant_lin.vl.json"></div>
+</div>
+<div class="fig">
+  <h3><a href="sweep-quant_log.pdf">Logarithmic Quantization</a></h3>
+  <div class="vis" data-vis="sweep-quant_log.vl.json"></div>
+</div>
+
+<!-- For vega-tooltip. -->
+<div id="vis-tooltip" class="vg-tooltip"></div>
+
+<script>
+var visblocks = document.querySelectorAll('.vis');
+for (var i = 0; i < visblocks.length; ++i) {
+  var visblock = visblocks[i];
+  var url = visblock.dataset['vis'];
+
+  vg.embed(visblock, {
+    mode: "vega-lite",
+    url: url,
+    actions: false,
+  }, function(error, result) {
+    if (result) {
+      vl.tooltip(result.view, result.spec);
+      console.log(result.spec);
+    }
+  });
+}
+</script>
+</body>
+</html>
