@@ -60,7 +60,7 @@ byapp_error_norm-%.vl.json: error.meta.js
 
 # Quantization sweeps.
 sweep-%.vl.json: sweep.meta.js
-	metajson --category $* --norm < $< > $@
+	metajson --category $* --norm --max 4.0 < $< > $@
 
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by

@@ -21,7 +21,7 @@
         "format": $.norm ? ".1f" : undefined,
       },
       "scale": $.norm ? {
-        "domain": [0.0, 4.0],  // More than 4x error not worth showing.
+        "domain": [0.0, $.max],  // Limit to maximum error.
       } : undefined,
     },
     "color": {
@@ -35,6 +35,6 @@
     "!!datum." + $.category,
 
     // Keep marks in range (mostly).
-    $.norm ? "datum.error_norm < 6.0" : "true",
+    $.norm ? "datum.error_norm < " + $.max : "true",
   ]},
 }
