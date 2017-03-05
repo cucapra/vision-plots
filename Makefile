@@ -64,7 +64,7 @@ sweep-%.vl.json: sweep.meta.js
 
 # Resolution sweep.
 ressweep.vl.json: ressweep.meta.js
-	metajson --category resolution --norm --max 4.0 < $< > $@
+	metajson --category resolution --max 4.0 < $< > $@
 
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by

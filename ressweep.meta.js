@@ -4,7 +4,7 @@
   "encoding": {
     "x": {
       "field": $.category, "type": "ordinal",
-      "sort": "descending",  // High to low.
+      "sort": "none",
     },
     "y": {
       "field": $.norm ? "error_norm" : "error",
@@ -15,7 +15,9 @@
       },
       "scale": $.norm ? {
         "domain": [0.0, $.max],  // Limit to maximum error.
-      } : undefined,
+      } : {
+        "zero": false,
+      },
     },
     "color": {
       "field": "app", "type": "nominal",
@@ -29,5 +31,8 @@
 
     // Keep marks in range (mostly).
     $.norm ? "datum.error_norm < " + $.max : "true",
+
+    // Exclude a benchmark with incomplete data (for now?).
+    "datum.app !== 'OpenMVG'",
   ]},
 }
