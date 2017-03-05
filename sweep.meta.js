@@ -16,7 +16,13 @@
     "y": {
       "field": $.norm ? "error_norm" : "error",
       "type": "quantitative",
-      "axis": {"title": $.norm ? "normalized error" : "error"},
+      "axis": {
+        "title": $.norm ? "normalized error" : "error",
+        "format": $.norm ? ".1f" : undefined,
+      },
+      "scale": $.norm ? {
+        "domain": [0.0, 4.0],  // More than 4x error not worth showing.
+      } : undefined,
     },
     "color": {
       "field": "app", "type": "nominal",
@@ -24,6 +30,11 @@
     },
   },
 
-  // Include only values belonging to the category.
-  "transform": { "filter": "!!datum." + $.category },
+  "transform": { "filter": [
+    // Include only values belonging to the category.
+    "!!datum." + $.category,
+
+    // Keep marks in range (mostly).
+    $.norm ? "datum.error_norm < 6.0" : "true",
+  ]},
 }
