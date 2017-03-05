@@ -16,7 +16,6 @@
       "scale": $.norm ? {
         "domain": [0.0, $.max],  // Limit to maximum error.
       } : {
-        "zero": false,
       },
     },
     "color": {
