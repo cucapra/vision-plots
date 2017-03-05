@@ -123,7 +123,7 @@ CONFIG_INFO = {
         "resolution": "1/16",
     },
     "V75": {
-        "resolution": "1/64",
+        "resolution": "  1/64",  # Ridiculous hack.
     },
 }
 
