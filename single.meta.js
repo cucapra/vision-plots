@@ -21,6 +21,12 @@
           // A hack! We add the vertical axis title only on the left-most plot,
           // which is the LeNet3 app.
           "title": $.app === "LeNet3" ? "error" : "",
+
+          // All our error metrics are proportions, so we format them as
+          // percentages.
+          "axis": {
+            "format": "%",
+          }
         },
         "color": {"field": $.category, "type": "nominal", "legend": false},
       },

@@ -130,6 +130,9 @@ CONFIG_INFO = {
 # Name of the configuration representing the normalization base.
 NORM_BASE = "V0"
 
+# All our error metrics are percentages (for now).
+MAX_ERROR = 100.0
+
 
 def all_runs(infn):
     """Given an input CSV in Mark's format, generate data tuples for
@@ -199,12 +202,13 @@ def flatten(infn, outfn):
         # Write each data row.
         for name, stages, interp, app, score in run_data:
             score_norm = score / norm_bases[app] if score else None
+            error = score / MAX_ERROR if score else None
             row = {
                 'name': name,
                 'stages': stages,
                 'interp': interp,
                 'app': app,
-                'error': score,
+                'error': error,
                 'error_norm': score_norm,
             }
             if name in CONFIG_INFO:
