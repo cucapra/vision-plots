@@ -22,10 +22,13 @@
           // which is the LeNet3 app.
           "title": $.app === "LeNet3" ? "error" : "",
 
-          // All our error metrics are proportions, so we format them as
-          // percentages.
           "axis": {
+            // All our error metrics are proportions, so we format them as
+            // percentages.
             "format": "%",
+
+            // Looser spacing of y-axis numbers.
+            "ticks": 8,
           }
         },
         "color": {"field": $.category, "type": "nominal", "legend": false},
