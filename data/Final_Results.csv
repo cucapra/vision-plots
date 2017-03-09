@@ -1,5 +1,5 @@
 Pipeline Tests,,,,,,,,,,,,,,,,
-Name,Stages Used,Interpretation,"CIFAR-10, 3 Deep LeNet","CIFAR-10, 20 Deep Resnet","CIFAR-10, 44 Deep Resnet","Middlebury, Farneback optical flow","Middlebury, Stereo SGBM","Strecha MVS, OpenMVG","LFW & CASIA, OpenFace","VOC-2007, Faster RCNN","VOC-2007, Faster RCNN",,,,,
+Name,Stages Used,Interpretation,"CIFAR-10, 3 Deep LeNet","CIFAR-10, 20 Deep Resnet","CIFAR-10, 44 Deep Resnet","Middlebury, Farneback optical flow","Middlebury, Stereo SGBM","Strecha MVS, OpenMVG","LFW & CASIA, OpenFace","VOC-2007, Faster RCNN","VOC-2007, Faster RCNN (precision)",,,,,
 General ISP Stages,,,Top 1 Error,Top 1 Error,Top 1 Error,Mean Error,Mean Error,Average RMSE,Mean Error,1-mAP,mAP (higher better),,,,,
 V0,None,No change to data,18.7,7.5,6.3,30.0,24.5,0.412,9.95,0.3935,60.7,,,,,
 V1,"Rto, Rg, Rtr, Renois, Remos",Full reverse,26.7,10.1,9.0,68.0,53.6,xxx,9.4,0.6471,35.3,,,,,
