@@ -26,7 +26,12 @@
     },
     "color": {
       "field": "app", "type": "nominal",
-      "legend": {"title": "Application"},
+
+      // A bit of a hack: only show the legend on logarithmic plot (for better
+      // pairing with the linear plot).
+      "legend": $.category === "quant_lin" ? false : {
+        "title": "Application",
+      },
     },
   },
 
