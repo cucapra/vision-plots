@@ -17,7 +17,11 @@
       "field": $.norm ? "error_norm" : "error",
       "type": "quantitative",
       "axis": {
-        "title": $.norm ? "normalized error" : "error",
+        // More side-by-side figure hacking: no title necessary on the
+        // right-hand (logarithmic) plot.
+        "title": $.category === "quant_log" ? "" : (
+          $.norm ? "normalized error" : "error"
+        ),
         "format": $.norm ? ".1f" : undefined,
       },
       "scale": $.norm ? {
