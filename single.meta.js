@@ -18,9 +18,18 @@
         "y": {
           "field": "error", "type": "quantitative",
 
-          // A hack! We add the vertical axis title only on the left-most plot,
-          // which is the LeNet3 app.
-          "title": $.app === "LeNet3" ? "error" : "",
+          // It would be nicer to derive this from the data. Hard-coded for
+          // now.
+          "title": {
+            'LeNet3': 'top 1 error',
+            'ResNet20': 'top 1 error',
+            'ResNet44': 'top 1 error',
+            'Farneback': 'mean error',
+            'SGBM': 'mean error',
+            'OpenMVG': 'average RMSE',
+            'OpenFace': 'mean error',
+            'RCNN': '1 - mAP',
+          }[$.app],
 
           "axis": {
             // All our error metrics are proportions, so we format them as
