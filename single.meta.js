@@ -83,9 +83,15 @@
         "x": {
           "field": $.category, "type": "nominal",
         },
-        "y": { "value": 0.5 },
+        "y": { "field": "error" },
         "color": { "value": '#c33' },
         "text": {"value": "*"},
+      },
+      "config": {
+        "mark": {
+          "fontSize": 25,
+          "dx": 1,
+        },
       },
 
       // Only show the crashed runs (and only for the non-baselines).
