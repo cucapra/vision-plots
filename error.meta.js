@@ -39,6 +39,7 @@
           "special": "",
         }[$.category],
       },
+      "sort": "none",
 
       "scale": {
         "padding": 4,
