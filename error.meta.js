@@ -44,6 +44,13 @@
     "facet": {"cell": {"strokeWidth": 0}}
   } : undefined,
 
-  // Include only values belonging to the category.
-  "transform": { "filter": "!!datum." + $.category },
+  "transform": {
+    "filter": [
+      // Include only values belonging to the category.
+      "!!datum." + $.category,
+
+      // When showing normalized plots, don't show the normalization point.
+      $.norm ? "datum.name !== 'V0'" : "true",
+    ],
+  },
 }
