@@ -41,7 +41,7 @@
 
       // In the "special pipelines" config, fix an order.
       "scale": $.category == "special" ? {
-        "domain": [ "d+g", "d+d+g", "all off" ],
+        "domain": [ "orig.", "d+g", "d+d+g", "all off" ],
       } : undefined,
     } : undefined,
   },
@@ -57,7 +57,8 @@
       "!!datum." + $.category,
 
       // When showing normalized plots, don't show the normalization point.
-      $.norm ? "datum.name !== 'V0'" : "true",
+      // (Disabled for now.)
+      // $.norm ? "datum.name !== 'V0'" : "true",
     ],
   },
 }
