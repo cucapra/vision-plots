@@ -19,7 +19,7 @@
             "bandSize": 10,
 
             // In the skip/only plots, use "pipeline order" for the stages.
-            "range": ($.category === "skip" || $.category === "only") ? [
+            "domain": ($.category === "skip" || $.category === "only") ? [
               "denoise", "demosaic", "transform", "gamut map", "gamma comp."
             ] : undefined,
           },
@@ -90,6 +90,17 @@
       "encoding": {
         "x": {
           "field": $.category, "type": "nominal",
+          "sort": "none",
+
+          // Unfortunately, this has to be copied n' pasted from the "x" scale
+          // for the bars themselves. They have to match exactly or Vega-Lite
+          // will complain. :(
+          "scale": {
+            "bandSize": 10,
+            "domain": ($.category === "skip" || $.category === "only") ? [
+              "denoise", "demosaic", "transform", "gamut map", "gamma comp."
+            ] : undefined,
+          },
         },
         "y": { "field": "error" },
         "color": { "value": '#c33' },
@@ -112,8 +123,8 @@
     },
   ],
 
-  // Include only values belonging to the category and the current app.
   "transform": {
+    // Include only values belonging to the category and the current app.
     "filter": "!!datum." + $.category + " && datum.app === '" + $.app + "'",
   },
 }
