@@ -9,11 +9,20 @@
       "encoding": {
         "x": {
           "field": $.category, "type": "nominal",
-          "scale": {"bandSize": 10},
+          "sort": "false",
 
           // Label each plot with the app. It is ugly to use the x-axis title
           // for this, but: https://github.com/vega/vega-lite/issues/431
           "title": $.app,
+
+          "scale": {
+            "bandSize": 10,
+
+            // In the skip/only plots, use "pipeline order" for the stages.
+            "range": ($.category === "skip" || $.category === "only") ? [
+              "denoise", "demosaic", "transform", "gamut map", "gamma comp."
+            ] : undefined,
+          },
         },
         "y": {
           "field": "error", "type": "quantitative",
