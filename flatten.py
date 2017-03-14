@@ -193,6 +193,15 @@ def flatten(infn, outfn):
     # Load the data from the CSV file.
     run_data = list(all_runs(infn))
 
+    # Drop duplicates: for every app/"name" pair, take only the first row.
+    run_data_u = []
+    seen_pairs = set()
+    for name, stages, interp, app, score in run_data:
+        if (app, name) in seen_pairs:
+            continue
+        seen_pairs.add((app, name))
+        run_data_u.append((name, stages, interp, app, score))
+
     # Get normalization baselines.
     norm_bases = {}
     for name, _, _, app, score in run_data:
@@ -210,7 +219,7 @@ def flatten(infn, outfn):
         writer.writeheader()
 
         # Write each data row.
-        for name, stages, interp, app, score in run_data:
+        for name, stages, interp, app, score in run_data_u:
             score_norm = score / norm_bases[app] if score else None
             error = score / MAX_ERROR[app] if score else None
             row = {
