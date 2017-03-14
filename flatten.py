@@ -36,7 +36,7 @@ CONFIG_INFO = {
         "special": "all off",
     },
     "V2": {
-        "only": "gamma compress",
+        "only": "gamma comp.",
     },
     "V3": {
         "only": "gamut map",
@@ -52,7 +52,7 @@ CONFIG_INFO = {
         "quant_lin": "8",
     },
     "V7": {
-        "skip": "gamma compress",
+        "skip": "gamma comp.",
     },
     "V8": {
         "skip": "gamut map",
