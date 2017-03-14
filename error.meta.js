@@ -1,4 +1,6 @@
 {
+  "height": 150,
+
   "data": { "url": "final.csv" },
   "mark": $.bars ? "bar" : "point",
   "encoding": {
