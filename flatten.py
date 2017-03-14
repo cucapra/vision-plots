@@ -34,7 +34,7 @@ CONFIG_INFO = {
         "special": "(full reverse)",
     },
     "V2": {
-        "only": "tone map",
+        "only": "gamma compress",
     },
     "V3": {
         "only": "gamut map",
@@ -50,7 +50,7 @@ CONFIG_INFO = {
         "quant_lin": "8",
     },
     "V7": {
-        "skip": "tone map",
+        "skip": "gamma compress",
     },
     "V8": {
         "skip": "gamut map",
@@ -65,10 +65,10 @@ CONFIG_INFO = {
         "skip": "demosaic",
     },
     "V12": {
-        "special": "demosaic + denoise + tone map",
+        "special": "demosaic + denoise + gamma compress",
     },
     "V13": {
-        "special": "demosaic + tone map",
+        "special": "demosaic + gamma compress",
         "quant_log": "8",
     },
     "V58": {
