@@ -6,8 +6,17 @@
   "encoding": {
     "x": $.bars ? {
       "field": $.byapp ? $.category : "app", "type": "nominal",
+      "sort": "none",
       "axis": false,
-      "scale": {"bandSize": 6},
+      "scale": {
+        "bandSize": 6,
+
+        // Benchmark order.
+        "domain": $.byapp ? undefined : [
+          'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
+          'SGBM', 'OpenMVG',
+        ],
+      },
     } : {"field": $.byapp ? "app" : $.category, "type": "nominal"},
 
     "y": {
@@ -20,9 +29,17 @@
 
     "color": {
       "field": $.byapp ? $.category : "app",
+      "sort": "none",
       "type": "nominal",
       "legend": {
         "title": $.byapp ? $.category : "Application",
+      },
+      "scale": {
+        // Benchmark order.
+        "domain": $.byapp ? undefined : [
+          'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
+          'SGBM', 'OpenMVG',
+        ],
       },
     },
 
