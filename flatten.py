@@ -27,6 +27,8 @@ CONFIG_INFO = {
         "only": "orig.",
         "skip": "orig.",
         "special": "orig.",
+        "demos_tm": "orig.",
+        "demos_raw": "orig.",
     },
     "V1": {
         "only": "all off",
