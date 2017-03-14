@@ -26,6 +26,7 @@
       },
       "scale": $.norm ? {
         "domain": [0.0, $.max],  // Limit to maximum error.
+        "clamp": true,
       } : undefined,
     },
     "color": {
@@ -43,7 +44,12 @@
     // Include only values belonging to the category.
     "!!datum." + $.category,
 
-    // Keep marks in range (mostly).
-    $.norm ? "datum.error_norm < " + $.max : "true",
+    // HACK: Remove some selected out-of-range points to avoid drawing a line
+    // across the top of the clamped plot.
+    $.category === "quant_lin" ?
+      // app == ResNet44 || ResNet20 implies quant_lin >= 3
+      "((datum.app !== 'ResNet44' && datum.app !== 'ResNet20') || " +
+        "datum.quant_lin >= 3)"
+    : "true",
   ]},
 }
