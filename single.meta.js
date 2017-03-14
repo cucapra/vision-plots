@@ -32,9 +32,8 @@
           }[$.app],
 
           "axis": {
-            // All our error metrics are proportions, so we format them as
-            // percentages.
-            "format": "%",
+            // Format as floating-point numbers.
+            "format": "f",
 
             // Looser spacing of y-axis numbers.
             "ticks": 8,
