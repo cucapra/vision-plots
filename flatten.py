@@ -24,14 +24,14 @@ APPS = OrderedDict([
 # "denoise" in the "only" plot. It is not included in the "skip" plot.
 CONFIG_INFO = {
     "V0": {
-        "only": "(original)",
-        "skip": "(original)",
-        "special": "(original)",
+        "only": "orig.",
+        "skip": "orig.",
+        "special": "orig.",
     },
     "V1": {
-        "only": "(full reverse)",
-        "skip": "(full reverse)",
-        "special": "(full reverse)",
+        "only": "all off",
+        "skip": "all off",
+        "special": "all off",
     },
     "V2": {
         "only": "gamma compress",
@@ -65,10 +65,10 @@ CONFIG_INFO = {
         "skip": "demosaic",
     },
     "V12": {
-        "special": "demosaic + denoise + gamma compress",
+        "special": "d+d+g",
     },
     "V13": {
-        "special": "demosaic + gamma compress",
+        "special": "d+g",
         "quant_log": "8",
     },
     "V58": {
