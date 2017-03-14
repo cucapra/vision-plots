@@ -19,11 +19,9 @@
             "bandSize": 10,
 
             // In the skip/only plots, use "pipeline order" for the stages.
-            /*
             "domain": ($.category === "skip" || $.category === "only") ? [
               "denoise", "demosaic", "transform", "gamut map", "gamma comp."
             ] : undefined,
-            */
           },
         },
         "y": {
@@ -93,18 +91,6 @@
         "x": {
           "field": $.category, "type": "nominal",
           "sort": "none",
-
-          // Unfortunately, this has to be copied n' pasted from the "x" scale
-          // for the bars themselves. They have to match exactly or Vega-Lite
-          // will complain. :(
-          "scale": {
-            "bandSize": 10,
-            /*
-            "domain": ($.category === "skip" || $.category === "only") ? [
-              "denoise", "demosaic", "transform", "gamut map", "gamma comp."
-            ] : undefined,
-            */
-          },
         },
         "y": { "field": "error" },
         "color": { "value": '#c33' },
