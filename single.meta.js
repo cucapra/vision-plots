@@ -75,6 +75,27 @@
         "filter": "datum.name === 'V1'",
       },
     },
+
+    // Text to label "crashed" runs.
+    {
+      "mark": "text",
+      "encoding": {
+        "x": {
+          "field": $.category, "type": "nominal",
+        },
+        "y": { "value": 0.5 },
+        "color": { "value": '#c33' },
+        "text": {"value": "*"},
+      },
+
+      // Only show the crashed runs (and only for the non-baselines).
+      "transform": {
+        "filter": [
+          "datum.name !== 'V0' && datum.name !== 'V1'",
+          "!datum.error",  // No error value: crashed.
+        ],
+      },
+    },
   ],
 
   // Include only values belonging to the category and the current app.
