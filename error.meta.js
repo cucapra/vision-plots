@@ -7,6 +7,7 @@
       "axis": false,
       "scale": {"bandSize": 6},
     } : {"field": $.byapp ? "app" : $.category, "type": "nominal"},
+
     "y": {
       "field": $.norm ? "error_norm" : "error",
       "type": "quantitative",
@@ -14,6 +15,7 @@
         "title": $.norm ? "normalized error" : "error",
       },
     },
+
     "color": {
       "field": $.byapp ? $.category : "app",
       "type": "nominal",
@@ -36,6 +38,11 @@
           "special": "",
         }[$.category],
       },
+
+      // In the "special pipelines" config, fix an order.
+      "scale": $.category == "special" ? {
+        "domain": [ "d+g", "d+d+g", "all off" ],
+      } : undefined,
     } : undefined,
   },
 
