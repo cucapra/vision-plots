@@ -37,6 +37,8 @@
           "skip": "skipped stage",
           "only": "included stage",
           "special": "",
+          "demos_raw": "demosaicing strategy",
+          "demos_tm": "demosaicing strategy",
         }[$.category],
       },
       "sort": "none",
@@ -63,8 +65,10 @@
       "!!datum." + $.category,
 
       // When showing normalized plots, don't show the normalization point.
-      // (Disabled for now.)
-      // $.norm ? "datum.name !== 'V0'" : "true",
+      // (Only enabled for demosiacing plots for now.)
+      ($.category === "demos_raw" || $.category === "demos_tm") ?
+        ($.norm ? "datum.name !== 'V0'" : "true")
+        : "true",
     ],
   },
 }
