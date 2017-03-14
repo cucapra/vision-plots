@@ -65,10 +65,10 @@ CONFIG_INFO = {
         "skip": "demosaic",
     },
     "V12": {
-        "special": "d+d+g",
+        "special": "+denoise",
     },
     "V13": {
-        "special": "d+g",
+        "special": "demos+g.c.",
         "quant_log": "8",
     },
     "V58": {

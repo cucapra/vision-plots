@@ -43,7 +43,7 @@
 
         // In the "special pipelines" config, fix an order.
         "domain": $.category == "special" ? [
-          "orig.", "d+g", "d+d+g", "all off"
+          "orig.", "demos+g.c.", "+denoise", "all off"
         ] : undefined,
       },
     } : undefined,
