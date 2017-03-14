@@ -19,9 +19,11 @@
             "bandSize": 10,
 
             // In the skip/only plots, use "pipeline order" for the stages.
+            /*
             "domain": ($.category === "skip" || $.category === "only") ? [
               "denoise", "demosaic", "transform", "gamut map", "gamma comp."
             ] : undefined,
+            */
           },
         },
         "y": {
@@ -97,14 +99,16 @@
           // will complain. :(
           "scale": {
             "bandSize": 10,
+            /*
             "domain": ($.category === "skip" || $.category === "only") ? [
               "denoise", "demosaic", "transform", "gamut map", "gamma comp."
             ] : undefined,
+            */
           },
         },
         "y": { "field": "error" },
         "color": { "value": '#c33' },
-        "text": {"value": "*"},
+        "text": { "field": "mark" },
       },
       "config": {
         "mark": {
@@ -113,11 +117,10 @@
         },
       },
 
-      // Only show the crashed runs (and only for the non-baselines).
+      // Only include the non-baselines.
       "transform": {
         "filter": [
           "datum.name !== 'V0' && datum.name !== 'V1'",
-          "datum.error === null",  // No error value: crashed.
         ],
       },
     },

@@ -191,7 +191,10 @@ def all_runs(infn):
                     score = float(row[app])
                 except ValueError:
                     score = None
-                yield name, stages, interp, APPS[app], score
+                    crashed = True
+                else:
+                    crashed = False
+                yield name, stages, interp, APPS[app], score, crashed
 
 
 def _union_all(iterables):
@@ -216,22 +219,23 @@ def flatten(infn, outfn):
     # Drop duplicates: for every app/"name" pair, take only the first row.
     run_data_u = []
     seen_pairs = set()
-    for name, stages, interp, app, score in run_data:
+    for name, stages, interp, app, score, crashed in run_data:
         if (app, name) in seen_pairs:
             continue
         seen_pairs.add((app, name))
-        run_data_u.append((name, stages, interp, app, score))
+        run_data_u.append((name, stages, interp, app, score, crashed))
 
     # Get normalization baselines.
     norm_bases = {}
-    for name, _, _, app, score in run_data:
+    for name, _, _, app, score, _ in run_data:
         if name == NORM_BASE and score is not None:
             norm_bases[app] = score
 
     # Translate the data.
     with open(outfn, 'w') as f:
         # Get the set of keys for the columns.
-        header = ['name', 'stages', 'interp', 'app', 'error', 'error_norm']
+        header = ['name', 'stages', 'interp', 'app', 'error',
+                  'error_norm', 'mark']
         header += config_keys
 
         # Write the header row.
@@ -239,7 +243,7 @@ def flatten(infn, outfn):
         writer.writeheader()
 
         # Write each data row.
-        for name, stages, interp, app, score in run_data_u:
+        for name, stages, interp, app, score, crashed in run_data_u:
             score_norm = score / norm_bases[app] if score else None
             error = score / MAX_ERROR[app] if score else None
             row = {
@@ -249,6 +253,7 @@ def flatten(infn, outfn):
                 'app': app,
                 'error': error,
                 'error_norm': score_norm,
+                'mark': '*' if crashed else '',  # Bar marker character.
             }
             if name in CONFIG_INFO:
                 row.update(CONFIG_INFO[name])
