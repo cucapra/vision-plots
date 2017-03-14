@@ -31,11 +31,21 @@
     },
     "color": {
       "field": "app", "type": "nominal",
+      "sort": "false",
 
       // A bit of a hack: only show the legend on logarithmic plot (for better
       // pairing with the linear plot).
       "legend": $.category === "quant_lin" ? false : {
         "title": "Application",
+      },
+
+      "scale": {
+        // Enforce a consistent domain so missing data does not cause
+        // misaligned colors.
+        "domain": [
+          'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
+          'SGBM', 'OpenMVG',
+        ],
       },
     },
   },
