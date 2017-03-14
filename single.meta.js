@@ -98,7 +98,7 @@
       "transform": {
         "filter": [
           "datum.name !== 'V0' && datum.name !== 'V1'",
-          "!datum.error",  // No error value: crashed.
+          "datum.error === null",  // No error value: crashed.
         ],
       },
     },
