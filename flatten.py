@@ -125,6 +125,24 @@ CONFIG_INFO = {
     "V75": {
         "resolution": "  1/64",  # Ridiculous hack.
     },
+    "V38": {
+        "demos_raw": "subsample",
+    },
+    "V39": {
+        "demos_raw": "nn",
+    },
+    "V40": {
+        "demos_raw": "bilinear",
+    },
+    "V41": {
+        "demos_tm": "subsample",
+    },
+    "V42": {
+        "demos_tm": "nn",
+    },
+    "V43": {
+        "demos_tm": "bilinear",
+    },
 }
 
 # Name of the configuration representing the normalization base.
