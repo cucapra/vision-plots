@@ -130,8 +130,18 @@ CONFIG_INFO = {
 # Name of the configuration representing the normalization base.
 NORM_BASE = "V0"
 
-# All our error metrics are percentages (for now).
-MAX_ERROR = 100.0
+# Most error metrics are percentages, so we divide them by 100.
+MAX_ERROR = {
+    "LeNet3":     100.0,
+    "LeNet3":     100.0,
+    "ResNet20":   100.0,
+    "ResNet44":   100.0,
+    "Farneback":  100.0,
+    "SGBM":       100.0,
+    "OpenMVG":    1.0,
+    "RCNN":       1.0,
+    "OpenFace":   100.0,
+}
 
 
 def all_runs(infn):
@@ -202,7 +212,7 @@ def flatten(infn, outfn):
         # Write each data row.
         for name, stages, interp, app, score in run_data:
             score_norm = score / norm_bases[app] if score else None
-            error = score / MAX_ERROR if score else None
+            error = score / MAX_ERROR[app] if score else None
             row = {
                 'name': name,
                 'stages': stages,
