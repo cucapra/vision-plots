@@ -28,7 +28,6 @@
     "column": $.bars ? {
       "field": $.byapp ? "app" : $.category,
       "type": "nominal",
-      "scale": {"padding": 4},
       "axis": {
         "orient": "bottom",
         "labelMaxLength": $.byapp ? 6 : undefined,
@@ -39,10 +38,14 @@
         }[$.category],
       },
 
-      // In the "special pipelines" config, fix an order.
-      "scale": $.category == "special" ? {
-        "domain": [ "orig.", "d+g", "d+d+g", "all off" ],
-      } : undefined,
+      "scale": {
+        "padding": 4,
+
+        // In the "special pipelines" config, fix an order.
+        "domain": $.category == "special" ? [
+          "orig.", "d+g", "d+d+g", "all off"
+        ] : undefined,
+      },
     } : undefined,
   },
 
