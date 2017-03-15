@@ -20,7 +20,7 @@
 
             // In the skip/only plots, use "pipeline order" for the stages.
             "domain": ($.category === "skip" || $.category === "only") ? [
-              "denoise", "demosaic", "transform", "gamut map", "gamma comp."
+              "demosaic", "denoise", "transform", "gamut map", "gamma comp."
             ] : undefined,
           },
         },
