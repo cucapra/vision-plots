@@ -1,11 +1,17 @@
 // Is this a demosaicing plot?
 $.demos = $.category === "demos_raw" || $.category === "demos_tm",
 
-// Domain for benchmark axes.
-$.benchmarks = [
-  'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
-  'SGBM', 'OpenMVG',
-],
+// Domain for benchmark axes. In demosaicing plots, do not include the
+// CIFAR-10 benchmarks (where images are too small to be meaningful).
+$.benchmarks = $.demos ?
+  [
+    'RCNN', 'OpenFace', 'Farneback',
+    'SGBM', 'OpenMVG',
+  ] :
+  [
+    'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
+    'SGBM', 'OpenMVG',
+  ],
 
 // The main plot.
 {
@@ -89,6 +95,11 @@ $.benchmarks = [
       // (Only enabled for demosiacing plots for now.)
       $.demos ?
         ($.norm ? "datum.name !== 'V0'" : "true")
+        : "true",
+
+      // In demosaicing mode, filter the benchmarks shown.
+      $.demos ?
+        "indexof(" + JSON.stringify($.benchmarks) + ", datum.app) !== -1"
         : "true",
     ],
   },
