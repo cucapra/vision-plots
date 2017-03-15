@@ -25,7 +25,7 @@ $.benchmarks = $.demos ?
       "sort": "none",
       "axis": false,
       "scale": {
-        "bandSize": 6,
+        "bandSize": $.demos ? 10 : 6,
 
         // Benchmark order.
         "domain": $.byapp ? undefined : $.benchmarks,
