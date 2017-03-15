@@ -1,5 +1,8 @@
+// Is this a demosaicing plot?
+$.demos = $.category === "demos_raw" || $.category === "demos_tm",
+
 // Domain for benchmark axes.
-$.benchmarks =  [
+$.benchmarks = [
   'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
   'SGBM', 'OpenMVG',
 ],
@@ -84,7 +87,7 @@ $.benchmarks =  [
 
       // When showing normalized plots, don't show the normalization point.
       // (Only enabled for demosiacing plots for now.)
-      ($.category === "demos_raw" || $.category === "demos_tm") ?
+      $.demos ?
         ($.norm ? "datum.name !== 'V0'" : "true")
         : "true",
     ],
