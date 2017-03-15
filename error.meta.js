@@ -1,3 +1,10 @@
+// Domain for benchmark axes.
+$.benchmarks =  [
+  'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
+  'SGBM', 'OpenMVG',
+],
+
+// The main plot.
 {
   "height": 150,
 
@@ -12,10 +19,7 @@
         "bandSize": 6,
 
         // Benchmark order.
-        "domain": $.byapp ? undefined : [
-          'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
-          'SGBM', 'OpenMVG',
-        ],
+        "domain": $.byapp ? undefined : $.benchmarks,
       },
     } : {"field": $.byapp ? "app" : $.category, "type": "nominal"},
 
@@ -36,10 +40,7 @@
       },
       "scale": {
         // Benchmark order.
-        "domain": $.byapp ? undefined : [
-          'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
-          'SGBM', 'OpenMVG',
-        ],
+        "domain": $.byapp ? undefined : $.benchmarks,
       },
     },
 
