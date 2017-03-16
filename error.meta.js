@@ -5,8 +5,7 @@ $.demos = $.category === "demos_raw" || $.category === "demos_tm",
 // CIFAR-10 benchmarks (where images are too small to be meaningful).
 $.benchmarks = $.demos ?
   [
-    'RCNN', 'OpenFace', 'Farneback',
-    'SGBM', 'OpenMVG',
+    'OpenFace', 'RCNN', 'OpenMVG', 'Farneback', 'SGBM',
   ] :
   [
     'LeNet3', 'ResNet20', 'ResNet44', 'RCNN', 'OpenFace', 'Farneback',
