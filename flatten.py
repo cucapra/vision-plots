@@ -73,6 +73,7 @@ CONFIG_INFO = {
         "special": "demos+g.c.",
         "quant_log": "8",
         "demos_tm": "demosaic",
+        "demos_tm_all": "demosaic",
     },
     "V58": {
         "quant_lin": "7",
@@ -139,6 +140,13 @@ CONFIG_INFO = {
     },
     "V41": {
         "demos_tm": "subsample",
+        "demos_tm_all": "subsample",
+    },
+    "V42": {
+        "demos_tm_all": "nn",
+    },
+    "V43": {
+        "demos_tm_all": "bilinear",
     },
 }
 

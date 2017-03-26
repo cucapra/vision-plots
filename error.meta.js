@@ -65,6 +65,7 @@ $.benchmarks = $.demos ?
           "special": "",
           "demos_raw": "",
           "demos_tm": "",
+          "demos_tm_all": "demosaicing strategy",
         }[$.category],
       },
       "sort": "none",

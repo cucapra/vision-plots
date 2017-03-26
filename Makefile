@@ -14,6 +14,7 @@ PLOTS := error-only error-skip error-special \
 	LeNet3-special ResNet20-special ResNet44-special Farneback-special \
 	SGBM-special OpenMVG-special RCNN-special OpenFace-special \
 	bars_error-demos_tm bars_error-demos_raw \
+	bars_error_norm-demos_tm_all \
 	bars_error_norm-demos_tm bars_error_norm-demos_raw
 
 .PHONY: svg pdf
