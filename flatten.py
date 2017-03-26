@@ -75,6 +75,30 @@ CONFIG_INFO = {
         "demos_tm": "demosaic",
         "demos_tm_all": "demosaic",
     },
+    "V28": {
+        "quant_cdf": "8",
+    },
+    "V29": {
+        "quant_cdf": "7",
+    },
+    "V30": {
+        "quant_cdf": "6",
+    },
+    "V31": {
+        "quant_cdf": "5",
+    },
+    "V32": {
+        "quant_cdf": "4",
+    },
+    "V33": {
+        "quant_cdf": "3",
+    },
+    "V34": {
+        "quant_cdf": "2",
+    },
+    "V35": {
+        "quant_cdf": "1",
+    },
     "V58": {
         "quant_lin": "7",
     },
