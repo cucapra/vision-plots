@@ -1,6 +1,6 @@
 {
   "data": { "url": "final.csv" },
-  "mark": "line",
+  "mark": "point",
   "encoding": {
     "x": {
       "field": $.category, "type": "ordinal",
