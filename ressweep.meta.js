@@ -1,5 +1,6 @@
 {
   "data": { "url": "final.csv" },
+  "width": 170,
   "mark": "point",
   "encoding": {
     "x": {
