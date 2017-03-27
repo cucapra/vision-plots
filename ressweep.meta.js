@@ -11,7 +11,7 @@
       "type": "quantitative",
       "axis": {
         "title": $.norm ? "normalized error" : "error",
-        "format": $.norm ? ".1f" : undefined,
+        "format": $.norm ? ".1f" : "f",
       },
       "scale": $.norm ? {
         "domain": [0.0, $.max],  // Limit to maximum error.
