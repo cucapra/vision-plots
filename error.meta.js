@@ -1,5 +1,5 @@
 // Is this a demosaicing plot?
-$.demos = $.category === "demos_raw" || $.category === "demos_tm",
+$.demos = $.category.startsWith("demos_"),
 
 // Domain for benchmark axes. In demosaicing plots, do not include the
 // CIFAR-10 benchmarks (where images are too small to be meaningful).
