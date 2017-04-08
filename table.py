@@ -6,6 +6,8 @@ from collections import OrderedDict
 
 CONFIGS = {
     'special': ['orig.', 'demos+g.c.', '+denoise', 'all off'],
+    'quant_lin': ['8', '7', '6', '5', '4', '3', '2', '1'],
+    'quant_log': ['8', '7', '6', '5', '4', '3', '2', '1'],
 }
 
 

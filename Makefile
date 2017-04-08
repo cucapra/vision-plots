@@ -16,6 +16,7 @@ PLOTS := error-only error-skip error-special \
 	bars_error-demos_tm bars_error-demos_raw \
 	bars_error_norm-demos_tm_all \
 	bars_error_norm-demos_tm bars_error_norm-demos_raw
+TABLES := special quant_lin quant_log
 
 .PHONY: svg pdf
 svg: $(PLOTS:%=%.svg)
@@ -83,8 +84,12 @@ FIX_SVG := ( \
 
 
 # Some CSV tables for external plotting.
-special.csv: final.csv
-	python3 table.py special < $^ > $@
+
+table_%.csv: final.csv
+	python3 table.py $* < $^ > $@
+
+.PHONY: tables
+tables: $(TABLES:%=table_%.csv)
 
 
 # Deployment.
