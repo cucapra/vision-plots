@@ -82,6 +82,11 @@ FIX_SVG := ( \
 	$(FIX_SVG) < $< | rsvg-convert -f pdf > $@
 
 
+# Some CSV tables for external plotting.
+special.csv: final.csv
+	python3 table.py < $^ > $@
+
+
 # Deployment.
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
