@@ -85,8 +85,8 @@ FIX_SVG := ( \
 
 # Some CSV tables for external plotting.
 
-table_%.csv: final.csv
-	python3 table.py $* < $^ > $@
+table_%.csv: final.csv table.py
+	python3 table.py $* < $< > $@
 
 .PHONY: tables
 tables: $(TABLES:%=table_%.csv)

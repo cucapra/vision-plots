@@ -23,7 +23,9 @@ def make_table(instream, outstream, mode):
                 table_row = table[app]
             else:
                 table_row = table[app] = OrderedDict()
-            table_row[index] = error
+            if error or index not in table_row:
+                table_row[index] = error
+            print(app, index, error)
 
     writer = csv.DictWriter(outstream, ['app'] + CONFIGS[mode])
     writer.writeheader()
