@@ -84,7 +84,7 @@ FIX_SVG := ( \
 
 # Some CSV tables for external plotting.
 special.csv: final.csv
-	python3 table.py < $^ > $@
+	python3 table.py special < $^ > $@
 
 
 # Deployment.

@@ -4,14 +4,16 @@ import sys
 import csv
 from collections import OrderedDict
 
-SPECIAL_CONFIGS = ['orig.', 'demos+g.c.', '+denoise', 'all off']
+CONFIGS = {
+    'special': ['orig.', 'demos+g.c.', '+denoise', 'all off'],
+}
 
 
-def make_table(instream, outstream):
+def make_table(instream, outstream, mode):
     reader = csv.DictReader(instream)
     table = OrderedDict()
     for row in reader:
-        index = row['special']
+        index = row[mode]
         if index:
             app = row['app']
             error = row['error_norm']
@@ -21,7 +23,7 @@ def make_table(instream, outstream):
                 table_row = table[app] = OrderedDict()
             table_row[index] = error
 
-    writer = csv.DictWriter(outstream, ['app'] + SPECIAL_CONFIGS)
+    writer = csv.DictWriter(outstream, ['app'] + CONFIGS[mode])
     writer.writeheader()
     for app, errors in table.items():
         row = dict(errors)
@@ -30,4 +32,4 @@ def make_table(instream, outstream):
 
 
 if __name__ == '__main__':
-    make_table(sys.stdin, sys.stdout)
+    make_table(sys.stdin, sys.stdout, sys.argv[1])
