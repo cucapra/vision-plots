@@ -23,6 +23,10 @@ svg: $(PLOTS:%=%.svg)
 pdf: $(PLOTS:%=%.pdf)
 vl: $(PLOTS:%=%.vl.json)
 
+# Commands from npm.
+METAJSON := $(shell yarn bin)/metajson
+VL2SVG = yarn run --silent vl2svg --
+
 final.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
 
@@ -30,45 +34,45 @@ early.csv: data/Final_Results.csv flatten.py
 	python3 flatten.py $< $@
 
 %.svg: %.vl.json final.csv
-	vl2svg < $< > $@
+	$(VL2SVG) < $< > $@
 
 # Plot variants.
 error-%.vl.json: error.meta.js
-	metajson --category $* < $< > $@
+	$(METAJSON) --category $* < $< > $@
 
 bars_error-%.vl.json: error.meta.js
-	metajson --category $* --bars < $< > $@
+	$(METAJSON) --category $* --bars < $< > $@
 
 byapp_error-%.vl.json: error.meta.js
-	metajson --category $* --bars --byapp < $< > $@
+	$(METAJSON) --category $* --bars --byapp < $< > $@
 
 # Normalized plot variants.
 error_norm-%.vl.json: error.meta.js
-	metajson --category $* --norm < $< > $@
+	$(METAJSON) --category $* --norm < $< > $@
 
 bars_error_norm-%.vl.json: error.meta.js
-	metajson --category $* --norm --bars < $< > $@
+	$(METAJSON) --category $* --norm --bars < $< > $@
 
 byapp_error_norm-%.vl.json: error.meta.js
-	metajson --category $* --norm --bars --byapp < $< > $@
+	$(METAJSON) --category $* --norm --bars --byapp < $< > $@
 
 # Single-app plots.
 %-only.vl.json: single.meta.js
-	metajson --category only --app $* < $< > $@
+	$(METAJSON) --category only --app $* < $< > $@
 
 %-skip.vl.json: single.meta.js
-	metajson --category skip --app $* < $< > $@
+	$(METAJSON) --category skip --app $* < $< > $@
 
 %-special.vl.json: single.meta.js
-	metajson --category special --app $* < $< > $@
+	$(METAJSON) --category special --app $* < $< > $@
 
 # Quantization sweeps.
 sweep-%.vl.json: sweep.meta.js
-	metajson --category $* --norm --max 4.0 < $< > $@
+	$(METAJSON) --category $* --norm --max 4.0 < $< > $@
 
 # Resolution sweep.
 ressweep.vl.json: ressweep.meta.js
-	metajson --category resolution --max 4.0 < $< > $@
+	$(METAJSON) --category resolution --max 4.0 < $< > $@
 
 
 # A little bit of Perl hacking to simplify the CSS in the SVGs produced by
