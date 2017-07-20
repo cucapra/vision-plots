@@ -1,0 +1,13 @@
+{
+  "name": "vision-plots",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "vg2svg": "vg2svg"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "vega": "2.6.3",
+    "vega-lite": "1.3.1"
+  }
+}
