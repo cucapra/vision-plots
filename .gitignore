@@ -3,3 +3,5 @@ early.csv
 *.svg
 *.pdf
 *.vl.json
+yarn.lock
+node_modules

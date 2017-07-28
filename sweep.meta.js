@@ -59,7 +59,8 @@
     $.category === "quant_lin" ?
       // app == ResNet44 || ResNet20 implies quant_lin >= 3
       "((datum.app !== 'ResNet44' && datum.app !== 'ResNet20') || " +
-        "datum.quant_lin >= 3)"
+        "datum.quant_lin >= 3) && " +
+      "((datum.app !== 'OpenFace') || datum.quant_lin >= 2)"
     : "true",
   ]},
 }
