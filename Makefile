@@ -100,7 +100,9 @@ tables: $(TABLES:%=table_%.csv)
 
 RSYNCARGS := --compress --recursive --checksum --itemize-changes \
 	--delete -e ssh --perms --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r \
-	--exclude .git
-DEST := courses:coursewww/capra.cs.cornell.edu/htdocs/public/vision-plots
+	--delete-excluded \
+	--exclude .git --exclude node_modules --exclude data/xl \
+	--exclude yarn.lock --exclude .DS_Store --exclude Makefile
+DEST := courses:coursewww/capra.cs.cornell.edu/htdocs/vision-plots
 deploy:
 	rsync $(RSYNCARGS) ./ $(DEST)
