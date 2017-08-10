@@ -1,9 +1,9 @@
-Visualization for the Cameras-for-Vision Project
-================================================
+Visualization for the Vision Mode Paper
+=======================================
 
-This is a set of scripts for visualizing the data from the experiments in the cameras-for-vision project. We use [Vega-Lite](https://vega.github.io/vega-lite/) to draw plots.
+This is a set of scripts for visualizing the data from the paper ["Reconfiguring the Imaging Pipeline for Computer Vision" in ICCV 2017][iccv] by Mark Buckler, Suren Jayasuriya, and Adrian Sampson.
 
-To produce plots, first install the dependencies using [Yarn](https://yarnpkg.com/en/). Just type:
+We use [Vega-Lite](https://vega.github.io/vega-lite/) to draw plots. To produce plots, first install the dependencies using [Yarn](https://yarnpkg.com/en/). Just type:
 
     $ yarn
 
@@ -16,3 +16,12 @@ Hacking
 -------
 
 The Vega-Lite source for the plots is in the files `*.meta.js`. These are [MetaJSON](https://github.com/sampsyo/metajson) files with a few different parameters that can be used to generate a bunch of similar but slightly different plots. See the Makefile for how to translate these into complete Vega-Lite JSON source programs.
+
+
+Credits
+-------
+
+If you use this data, please cite [our ICCV paper][iccv].
+The license is MIT.
+
+[iccv]: https://capra.cs.cornell.edu/research/visionmode.html
